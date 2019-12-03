@@ -2,7 +2,7 @@ package com.chryl.threadlocals;
 
 /**
  * threadLocal:保证共享变量在每个线程中创建副本,每个线程可以访问自己内部的副本变量,使每个线程互不影响,保证线程的安全性(每个线程是隔离的)
- *
+ * <p>
  * Created by Chryl on 2019/12/3.
  */
 public class ThreadLocalDemo {
@@ -21,12 +21,19 @@ public class ThreadLocalDemo {
 
         for (int i = 0; i < threads.length; i++) {
             threads[i] = new Thread(() -> {
+                //num
                 num += 5;
+                //numLocal
+                int value = numLocal.get().intValue();
+                value += 5;
+                numLocal.set(value);
+
                 System.out.println(
                         Thread.currentThread().getName() + ":"
-                                + num
+//                                + num
+                                + numLocal.get()
                 );
-            }, "Thread-" + num);
+            }, "Thread-" + i);
         }
 
         for (int t = 0; t < threads.length; t++) {
