@@ -1,4 +1,4 @@
-package com.chryl.base.xly.threadBase;
+package com.chryl.threads.threadBase;
 
 
 /**

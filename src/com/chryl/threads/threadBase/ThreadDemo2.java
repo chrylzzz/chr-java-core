@@ -1,4 +1,4 @@
-package com.chryl.base.xly.threadBase;
+package com.chryl.threads.threadBase;
 
 /**
  * 为什么没有中断线程:因为抛出了InterruptedException中断异常时,中断标志位也会有true变为false
