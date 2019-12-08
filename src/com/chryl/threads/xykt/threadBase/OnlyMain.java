@@ -1,4 +1,4 @@
-package com.chryl.threads.threadBase;
+package com.chryl.threads.xykt.threadBase;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadInfo;

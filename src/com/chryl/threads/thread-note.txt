@@ -20,15 +20,35 @@ Runnable:实际是对任务(业务)的抽象,本质不是对线程的抽象,并�
 suspend():挂起一个线程,挂起后线程不在占用cpu,直到唤醒,而且占用资源不释放.
 stop():暂停时,资源不会保证正常释放,有时候未操作完,直接关闭了,导致文件破损
 
+
 那如何停止线程:interrupt():中断线程,推荐
 本质上其实是设置线程的标识位:true,通知它为中断,但是如果线程不理会也可以不中断,
 如果要中断:
 实力方法:thread.isInterrupted()来判断thread的标识位是false还是true,已中断为true,就可以来中断了
 静态方法:thread.interrupted(),判断是否中断,如果是true,则判断完之后,会把标识位自动变为false,会恢复中断标识位
 总结:区别
-thread.interrupt():将现成的中断标识位变为true
+thread.interrupt():将现成的中断标识位变为true,专门用于终止线程
 thread.isInterrupted():判断中断标识位是否为true
-thread.interrupted():判断中断标识位是否为true,并且恢复中断标识位为false
+thread.interrupted():判断中断标识位是否为true,并且恢复中断标识位为false,复位功能
+
+
+start 和 run 方法的区别:
+start()方法:使线程与操作系统挂钩,等待分配cpu和资源,得到资源之后,采取真正的执行run()方法,
+run其实就是业务的实现,run就是成员方法,start是调用的
+
+
+yield方法:原生方法,让出cpu执行权.
+
+join方法:加入,先执行加入的方法
+
+守护线程:
+用户线程:
+
+
+
+
+
+
 
 
 

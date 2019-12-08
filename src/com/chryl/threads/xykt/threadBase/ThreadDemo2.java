@@ -1,11 +1,12 @@
-package com.chryl.threads.threadBase;
+package com.chryl.threads.xykt.threadBase;
 
 /**
- * 为什么没有中断线程:因为抛出了InterruptedException中断异常时,中断标志位也会有true变为false
+ * 为什么没有中断线程:因为抛出了InterruptedException中断异常时,中断标志位也由有true变为false
  * <p>
  * Created by Chryl on 2019/8/22.
  */
 public class ThreadDemo2 {
+
     private static class DemoThread2 extends Thread {
 
         public DemoThread2(String name) {
@@ -26,6 +27,7 @@ public class ThreadDemo2 {
                      *出现中断异常,再手动调用中断:自行中断
                      */
                     interrupt();
+
                     e.printStackTrace();
                 }
                 System.out.println(name + ": is running");

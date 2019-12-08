@@ -1,7 +1,7 @@
-package com.chryl.threads.threadBase;
+package com.chryl.threads.xykt.threadBase;
 
 /**
- * 如何中断线程
+ * 如何安全中断线程
  * <p>
  * Created by Chryl on 2019/8/22.
  */
@@ -11,14 +11,15 @@ public class ThreadDemo {
         public void run() {
             String name = Thread.currentThread().getName();
             System.out.println(name + ": [isInterrupted] :" + isInterrupted());
-//            while (!isInterrupted()) {//实例方法
-            while (!Thread.interrupted()) {//静态方法
+            while (!isInterrupted()) {//实例方法
+//            while (!Thread.interrupted()) {//静态方法
                 System.out.println(name + ": is running");
                 System.out.println(name + ": [isInterrupted] :" + isInterrupted());
             }
             /**
-             * 实例方法打印的为true
-             * 静态方法打印的为false
+             * 都会判断标志位
+             * 实例方法打印的为true:判断标志位后,不改变标志位
+             * 静态方法打印的为false:判断标志位后,重新该为false为标志位
              */
             System.out.println(name + ": [isInterrupted] :" + isInterrupted());
         }
